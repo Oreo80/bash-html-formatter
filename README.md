@@ -1,0 +1,34 @@
+# bash-html-formatter
+
+A zero-dependency HTML pretty printer implemented entirely in pure Bash.
+
+This tool formats and indents HTML files using standard shell utilities (`bash`, `sed`, `printf`) without requiring heavy runtimes like Node.js or Python. It demonstrates complex string manipulation and state management within a shell environment.
+
+## Technical Overview
+
+Unlike simple find-and-replace scripts, this formatter uses a state-based approach to handle HTML structure correctly:
+
+* **Zero Dependencies:** Runs on virtually any Unix-like system with Bash 4.0+.
+* **Context-Aware Indentation:** Distinguishes between block elements (which require new lines and indentation) and inline elements (which must preserve text flow).
+* **Stack-Based Logic:** Implements an internal array as a stack to track nested inline tags, ensuring correct formatting for complex structures like `<a><span>text</span></a>`.
+* **Regex Parsing:** Utilizes `BASH_REMATCH` for tokenizing HTML tags and content streams.
+
+## Usage
+
+
+Run the formatter:
+
+```bash
+./html.sh <input_file.html> <output_file.html>
+```
+
+
+
+## Limitations
+
+This tool is designed for standard, compliant HTML structures. As it relies on regular expressions rather than a full DOM parser, it may encounter issues with extremely malformed HTML or attributes containing escaped angle brackets inside quotes.
+
+## License
+
+MIT License
+
