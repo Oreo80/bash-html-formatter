@@ -1,0 +1,5 @@
+*.output.html
+output.html
+formatted.html
+.DS_Store
+Thumbs.db
